@@ -1,36 +1,27 @@
 # svlete-aws-lambda
+**This is a fork of [https://github.com/anasmohammed361/sveltekit-aws-lambda](https://github.com/anasmohammed361/sveltekit-aws-lambda)**
 
-**This adapter allows you to run  SvelteKit site on  [AWS](https://aws.amazon.com) lambda.**
+This is a Svelte Adapter for AWS Lambda. My setup is Cloudfront -> Lambda Function for SSR (build folder), and Cloudfront -> S3 for Static Assets (out/client folder).
 
 ---
 
 ### svelte.config.js
 
 ```
-import { adapter } from 'sveltekit-lambda-adapter';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import { adapter as lambdaAdapt } from '@siralpega/sveltekit-lambda-adapter';
+import adapter from '@sveltejs/adapter-node';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
-	preprocess: vitePreprocess(),
-
+export default {
 	kit: {
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: adapter()
+		adapter: process.env.BUILD_MODE == "lambda" ? lambdaAdapt() : adapter(),
 	}
 };
-
-export default config;
 ```
 ---
 ### build.js
 
 ```
-import {bundleApp} from "sveltekit-lambda-adapter"
+import { bundleApp } from "@siralpega/sveltekit-lambda-adapter";
 bundleApp()
 ```
 ---
@@ -43,5 +34,3 @@ npm run build
 node build.js
 ```
 
----
-[Chechout this blog](https://medium.com/@anasmohammed361/sveltekit-on-aws-lambda-cloudfront-s3-79d60d572f4d)
