@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2, APIGatewayProxyEvent, APIGatewayProxyResult, CloudFrontRequestEvent, CloudFrontRequestResult } from "aws-lambda";
 export type InternalEvent = {
     readonly type: "v1" | "v2" | "cf";

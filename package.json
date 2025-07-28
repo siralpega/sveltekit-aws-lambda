@@ -1,15 +1,15 @@
 {
-  "name": "sveltekit-lambda-adapter",
-  "description": "Adapter for SvelteKit apps to work on AWS Lambda",
-  "version": "1.2.3",
+  "name": "@siralpega/sveltekit-lambda-adapter",
+  "description": "Adapter for SvelteKit apps to work on AWS Lambda fork. Original: https://github.com/anasmohammed361/sveltekit-aws-lambda",
+  "version": "1.2.4",
   "type": "module",
   "license": "MIT",
   "author": {
-    "name": "Mohammed Anas"
+    "name": "Alpega"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anasmohammed361/sveltekit-aws-lambda"
+    "url": "https://github.com/siralpega/sveltekit-aws-lambda"
   },
   "keywords": [
     "svelte",
@@ -27,12 +27,12 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@sveltejs/kit": "^1.5.0",
-    "@types/aws-lambda": "^8.10.112",
-    "@types/node": "^20.5.1",
+    "@sveltejs/kit": "^2.20.7",
+    "@types/aws-lambda": "^8.10.152",
+    "@types/node": "^22.0.0",
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "esbuild": "^0.19.2"
+    "esbuild": "^0.25.8"
   }
 }

@@ -96,7 +96,7 @@ function convertFromAPIGatewayProxyEventV2(
     url: rawPath + (rawQueryString ? `?${rawQueryString}` : ""),
     body: normalizeAPIGatewayProxyEventV2Body(event),
     headers: normalizeAPIGatewayProxyEventV2Headers(event),
-    remoteAddress: requestContext.http.sourceIp,
+    remoteAddress: event?.headers["x-forwarded-for"] ?? requestContext.http.sourceIp
   };
 }
 
