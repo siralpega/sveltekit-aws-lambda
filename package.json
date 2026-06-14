@@ -27,12 +27,12 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@sveltejs/kit": "^2.52.2",
+    "@sveltejs/kit": "^2.65.0",
     "@types/aws-lambda": "^8.10.152",
     "@types/node": "^22.0.0",
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "esbuild": "^0.25.8"
+    "esbuild": "^0.28.1"
   }
 }
